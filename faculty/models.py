@@ -62,11 +62,7 @@ class Teacher(models.Model):
         on_delete=models.CASCADE,
         related_name='teachers'
     )
-    courses = models.ManyToManyField(
-        Course,
-        related_name='teachers',
-        blank=True
-    )
+
 
     def __str__(self):
         return self.name
