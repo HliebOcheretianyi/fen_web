@@ -2,12 +2,23 @@
 {% block title %}Академічний обмін{% endblock %}
 {% block content %}
     <h1>Програми академічного обміну</h1>
+    <p>
+        <a href="{% url 'exchange:exchange_list' %}">Усі</a>
+        {% for c in countries %}
+            · <a href="{% url 'exchange:exchange_list' %}?country={{ c|urlencode }}">{{ c }}</a>
+        {% endfor %}
+    </p>
     {% for program in programs %}
         <article class="card">
             <h2>{{ program.university }} <span class="code">{{ program.country }}</span></h2>
             <p>{{ program.description }}</p>
             <p class="meta">Мови: {{ program.languages }} · Місць: {{ program.seats }} ·
                Дедлайн: {{ program.deadline|date:"d.m.Y" }}</p>
+            {% if program.is_open %}
+                <span class="badge badge-open">Прийом триває</span>
+            {% else %}
+                <span class="badge badge-closed">Прийом завершено</span>
+            {% endif %}
         </article>
     {% empty %}
         <p>Програм поки немає.</p>

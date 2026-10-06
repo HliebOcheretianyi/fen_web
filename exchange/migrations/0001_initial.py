@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('university', models.CharField(max_length=255)),
                 ('languages', models.CharField(max_length=255)),
-                ('seats', models.CharField(max_length=50)),
+                ('seats', models.CharField(max_length=50, default='')),
                 ('deadline', models.DateField()),
                 ('description', models.TextField()),
             ],
