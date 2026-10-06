@@ -8,7 +8,7 @@
                 <a href="{% url 'faculty:program_detail' program.id %}">{{ program.name }}</a>
                 <span class="code">{{ program.code }}</span>
             </h2>
-            <p>{{ program.description|truncatewords:50 }}</p>
+            <p>{{ program.about|truncatewords:50 }}</p>
             <p class="meta">Координатор набору: {{ program.coordinator }} · {{ program.contact }}</p>
         </article>
     {% empty %}
