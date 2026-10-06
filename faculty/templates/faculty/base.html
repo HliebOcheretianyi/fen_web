@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Факультет{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'faculty/style.css' %}">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="{% url 'faculty:index' %}">НаУКМА</a>
+        <nav>
+            <a href="{% url 'faculty:index' %}">Головна</a>
+            <a href="{% url 'faculty:department_list' %}">Кафедри</a>
+            <a href="{% url 'faculty:program_list' %}">Спеціальності</a>
+            <a href="{% url 'exchange:exchange_list' %}">Обмін</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">© НаУКМА, Очеретяний, 2026</footer>
+</body>
+</html>
