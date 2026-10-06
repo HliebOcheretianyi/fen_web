@@ -1,0 +1,16 @@
+{% extends 'faculty/base.html' %}
+{% block title %}Головна{% endblock %}
+{% block content %}
+    {% if page %}
+        <h1>{{ page.faculty_name }}</h1>
+        <div class="text">{{ page.about|linebreaks }}</div>
+        <h2>Контакти</h2>
+        <ul>
+            <li>Адреса: {{ page.address }}</li>
+            <li>Телефон: {{ page.phone_number }}</li>
+            <li>Email: {{ page.email }}</li>
+        </ul>
+    {% else %}
+        <p>Контент головної сторінки ще не заповнено в адмінці.</p>
+    {% endif %}
+{% endblock %}

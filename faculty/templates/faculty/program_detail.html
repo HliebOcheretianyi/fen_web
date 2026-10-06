@@ -1,0 +1,21 @@
+{% extends 'faculty/base.html' %}
+{% block title %}{{ program.name }}{% endblock %}
+{% block content %}
+    <h1>{{ program.name }} <span class="code">{{ program.code }}</span></h1>
+    <p class="meta">
+        Випускова кафедра:
+        <a href="{% url 'faculty:department_detail' program.release_department.id %}">{{ program.release_department.name }}</a>
+    </p>
+    <p class="meta">Координатор набору: {{ program.coordinator }} · {{ program.contact }}</p>
+
+    <h2>Опис</h2>
+    <div class="text">{{ program.about|linebreaks }}</div>
+
+    <h2>Дисципліни</h2>
+    {% if subjects %}
+        <ul>{% for subject in subjects %}<li>{{ subject }}</li>{% endfor %}</ul>
+    {% else %}
+        <p>Список дисциплін ще не заповнено.</p>
+    {% endif %}
+    <p><a href="{% url 'faculty:program_list' %}">← До списку спеціальностей</a></p>
+{% endblock %}
